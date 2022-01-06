@@ -3,6 +3,53 @@
 
 using namespace std;
 
+
+bool
+check_paren(string s) {
+
+	stack<char> brackets;
+
+	for (char &c : s) {
+		switch(c) {
+			case '(' :
+				brackets.push(c);
+				break;
+			case '{' :
+				brackets.push(c);
+				break;
+			case '[' :
+				brackets.push(c);
+				break;
+			case ')' :
+				if (brackets.top() == '(') {
+					brackets.pop();
+				} else { 
+					return false;
+				}
+				break;
+			case '}' :
+				if (brackets.top() == '{') {
+					brackets.pop();
+				} else {
+					return false;
+				}
+				break;
+			case ']' :
+				if (brackets.top() ==  '[') {
+					brackets.pop();
+				} else {
+					return false;
+				}
+				break;
+			default :
+				break;		
+		}
+	}
+	return brackets.empty();
+
+}
+
+
 int
 main() {
 
@@ -14,6 +61,8 @@ main() {
 		int i = c;
 		cout << i << endl;
 	}
+
+	cout << check_paren(s_new) << endl;
 
 	stack<char> test;
 	stack<char> test2;
