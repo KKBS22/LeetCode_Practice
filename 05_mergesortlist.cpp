@@ -15,10 +15,23 @@ struct ListNode {
 ListNode*
 merge_lists(ListNode* list_one, ListNode* list_two) {
 
-	ListNode final_list(0);
-	ListNode *test = &final_list;
+	ListNode *final_list = new ListNode(0);
+	
+	while((list_one->next != NULL) && (list_two->next != NULL)) {
+	
+		if(list_one->val < list_two->val) {
+			final_list = list_one;
+			list_one = list_one->next;
+		} else {
+			final_list = list_two;
+			list_two = list_two->next;
+		}
+		final_list = final_list->next;
+	}
 
-	return test;	
+
+
+	return final_list;	
 
 }
 
@@ -32,6 +45,9 @@ main(int argc, char * argv[]) {
 
 	cout << testing->val << endl;
 
+	if (testing->next == NULL) {
+		cout << "Checking condition " << endl;
+	}
 	delete(testing);
 
 	return EXIT_SUCCESS;
