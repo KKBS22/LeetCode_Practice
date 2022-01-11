@@ -5,6 +5,26 @@ using namespace std;
 // Use KMP matching algorithm
 
 int
+naive_algo(string haystack, string needle) {
+
+	int size_h = haystack.size();
+	int size_n = needle.size();
+
+	for (int j =0 ; j < size_h - size_n ; j++) {
+		for (int i = 0; i < size_n ; i++) {
+			if (needle[i] == haystack[i+j]) {
+				if (i >= size_n) {
+					return j;
+				}
+			
+			}
+		}
+	}
+
+}
+
+
+int
 kmp_match(string haystack, string needle) {
 
 	bool is_match = false;
@@ -55,5 +75,9 @@ main(int argc, char* argv[]) {
 
 	cout << "Is needle in haystack : " << kmp_match(hay, needle) << endl; 	
 
+	int pos = naive_algo(hay, needle);
+
+	cout << "Matching by naive : " << pos << endl;
+	
 	return EXIT_SUCCESS;
 }
