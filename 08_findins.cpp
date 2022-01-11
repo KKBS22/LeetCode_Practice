@@ -46,7 +46,7 @@ quick_sort(vector<int> &nums, int p, int r) {
 
 int
 bin_search(vector<int> &nums, int find, int low, int high) {
-	if (low <= high) {
+	if (high >= low) {
 		int mid = (low + high)/2;
 		cout << mid << endl;
 		if (low == high) {
@@ -59,13 +59,12 @@ bin_search(vector<int> &nums, int find, int low, int high) {
 		if (nums[mid] == find) {
 			return mid;
 		} else if (find < nums[mid]) {
-			bin_search(nums,find,low,mid-1);
+			return bin_search(nums,find,low,mid-1);
 		} else {
-			bin_search(nums,find,mid+1,high);
+			return bin_search(nums,find,mid+1,high);
 		}
-	} else {
-		return -1;
-	}
+	} 
+	return -1;
 }
 
 
