@@ -3,10 +3,10 @@
 
 using namespace std;
 
-
+template <class T>
 void 
-swap (int *one, int *two) {
-	int temp = *one;
+swap (T *one, T *two) {
+	T temp = *one;
 	*one = *two;
 	*two = temp;
 }
