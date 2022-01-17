@@ -48,5 +48,13 @@ main(int argc, char* argv[]) {
 	for (vector<int>::iterator it = test2.begin(); it != test2.end() ; it++) {
 		cout << *it << endl;
 	}
+
+	// Some common Math functions:
+	// double testing = 5.1 % 3.0;
+	cout << "Calculating the remainder : " << remainder(5.1,3.0) << endl;
+	cout << "Calculating the hypotinuse : " << hypot(3.0, 6.0) << endl;
+
+	cout << "Indicate overflow value of : Float " << HUGE_VAL << endl;
+	
 	return EXIT_SUCCESS;
 }
