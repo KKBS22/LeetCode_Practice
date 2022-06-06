@@ -1,0 +1,5 @@
+#Ignore out files
+
+a.out
+PARTICLE_SIM/a.out
+
